@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-07-2023 a las 00:25:31
+-- Tiempo de generación: 28-07-2023 a las 02:04:00
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.8
 
@@ -180,7 +180,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `correo`, `telefono`, `password`, `fecha`, `id_rol`, `sexo`, `imagen`) VALUES
-(5, 'Administrador', 'admin@softcodepm.com ', '45354356', '$2y$05$rSGStdVtYXAeIMxNwVR1suYBn4LT7zwImjLKvEMTT7Rxx1kKlCA8W', '2023-07-24 15:30:22', 1, 'Masculino', 'images/undraw_rocket.svg');
+(5, 'Administrador', 'admin@gmail.com', '45354356', '$2y$05$rSGStdVtYXAeIMxNwVR1suYBn4LT7zwImjLKvEMTT7Rxx1kKlCA8W', '2023-07-28 00:03:38', 1, 'Masculino', 'images/undraw_rocket.svg');
 
 --
 -- Índices para tablas volcadas
