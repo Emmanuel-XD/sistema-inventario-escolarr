@@ -48,7 +48,7 @@ class PDF extends FPDF
         $this->Ln(20);
         $this->setY(86);
         $this->setX(40);
-        $this->Cell(150, 0, '', 'T'); // DIVISION
+        $this->Cell(159, 0, '', 'T'); // DIVISION
 
         $this->SetFont('Arial', '', 10);
         $this->setY(91);
@@ -59,7 +59,7 @@ class PDF extends FPDF
         $this->Ln(20);
         $this->setY(94);
         $this->setX(35);
-        $this->Cell(155, 0, '', 'T'); // DIVISION
+        $this->Cell(164, 0, '', 'T'); // DIVISION
 
         $this->SetFont('Arial', '', 10);
         $this->setY(99);
@@ -70,7 +70,7 @@ class PDF extends FPDF
         $this->Ln(20);
         $this->setY(102);
         $this->setX(33);
-        $this->Cell(157, 0, '', 'T'); // DIVISION
+        $this->Cell(166, 0, '', 'T'); // DIVISION
 
         // datos derecheos
         $this->SetFont('Arial', '', 10);
@@ -101,8 +101,8 @@ class PDF extends FPDF
         $this->SetX(20);
 
 
-        $this->Cell(145, 10, 'DESCRIPCION', 1, 0, 'C', 0);
-        $this->Cell(30, 10, 'CANTIDAD', 1, 1, 'C', 0);
+        $this->Cell(155, 10, 'DESCRIPCION', 1, 0, 'C', 0);
+        $this->Cell(25, 10, 'CANTIDAD', 1, 1, 'C', 0);
     }
 
     // Pie de página
@@ -259,7 +259,7 @@ INNER JOIN output_product op ON op.id_salida = s.id INNER JOIN recursos r ON r.i
 $pdf = new PDF('P', 'mm', 'letter');
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont('Arial', '', 10);
+$pdf->SetFont('Arial', '', 9);
 
 extract($_GET);
 require_once("db.php");
@@ -270,8 +270,8 @@ $resultado = mysqli_query($conexion, $consulta);
 if ($resultado) {
     while ($row = $resultado->fetch_assoc()) {
         $pdf->SetX(20);
-        $pdf->Cell(145, 10, utf8_decode($row['productos']), 1, 0, 'L', 0); // Usamos 'productos' en lugar de 'producto'
-        $pdf->Cell(30, 10, utf8_decode('$' . $row['total']), 1, 1, 'C', 0);
+        $pdf->Cell(155, 10, utf8_decode($row['productos']), 1, 0, 'L', 0); // Usamos 'productos' en lugar de 'producto'
+        $pdf->Cell(25, 10, utf8_decode('$' . $row['total']), 1, 1, 'L', 0);
     }
 } else {
     echo "Error en la consulta SQL: " . mysqli_error($conexion);
