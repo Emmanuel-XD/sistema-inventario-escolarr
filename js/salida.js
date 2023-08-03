@@ -39,7 +39,7 @@ $(document).ready(function () {
                         <td>${item.compra}</td>
                         <td><input class="cantidad" type="number" value="1"></td>
                         <td class="total">${item.compra}</td>
-                        <td><button class="btn btn-danger btn-sm btn-quitar" data-codigo="${item.codigo}">Quitar</button></td>
+                        <td><button class="btn btn-danger btn-sm btn-quitar" data-codigo="${item.codigo}"> <i class="fa fa-trash "></i></button></td>
                     </tr>
                 `);
             }
