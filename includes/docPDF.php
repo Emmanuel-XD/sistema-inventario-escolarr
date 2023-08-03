@@ -143,13 +143,13 @@ INNER JOIN output_product op ON op.id_salida = s.id INNER JOIN recursos r ON r.i
         $this->SetFont('Helvetica', '', 8);
         $this->Ln(20);
         $this->setY(155);
-        $this->setX(73);
+        $this->setX(72.5);
         $this->Cell(60, 0, utf8_decode('"Tecnologia para el Progreso de Nuestra Patria"'), 0, 1, 'C');
 
         $this->SetFont('Helvetica', 'B', 12);
         $this->Ln(20);
         $this->setY(162);
-        $this->setX(73);
+        $this->setX(76);
         $this->Cell(60, 0, utf8_decode('RESPONSABLES DEL EJERCICIO Y COMPROBACION DE LOS RECURSOS'), 0, 1, 'C');
 
         $this->SetFont('Helvetica', 'B', 10);
