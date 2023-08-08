@@ -39,6 +39,7 @@ if (isset($_POST['accion'])) {
             break;
     }
 }
+
 function saveItms(){
     try{
     global $conexion;
@@ -55,6 +56,7 @@ function saveItms(){
         $id = $value['idprd'];
         $cantidad = $value['cantidad'];
         $result = $conexion->query("INSERT INTO `output_product`(`id_producto`, `cantidad`, `id_salida`) VALUES ('$id','$cantidad','$lastInsertedId')") ? null : null;
+        $updateProducts = $conexion->query("UPDATE `recursos` SET `existencia`=existencia - $cantidad WHERE `id` = $id") ? null : null;  
     }
    $response = array("status" => "success", "last_inserted_id" => $lastInsertedId);
 }
@@ -63,6 +65,7 @@ catch (Exception $e){
 }
 echo json_encode($response);
 }
+
 function insertar_categoria()
 {
     global $conexion;
