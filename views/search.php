@@ -11,6 +11,7 @@ $result = mysqli_query($conexion, $query);
 $data = array();
 while ($fila = mysqli_fetch_assoc($result)) {
     $data[] = array(
+        'idPrd' => $fila['id'],
         'codigo' => $fila['codigo'],
         'producto' => $fila['producto'],
         'existencia' => $fila['existencia'],

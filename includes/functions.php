@@ -13,7 +13,9 @@ if (isset($_POST['accion'])) {
         case 'insertar_inventario':
             insertar_inventario();
             break;
-
+        case 'saveItms':
+            saveItms();
+            break;
 
         case 'editar_inv':
             editar_inv();
@@ -37,7 +39,30 @@ if (isset($_POST['accion'])) {
             break;
     }
 }
-
+function saveItms(){
+    try{
+    global $conexion;
+    include "db.php";
+    session_start();
+    $usuario = $_SESSION['usuario'];
+    $total = $_POST['total'];
+    $area = $_POST['area'];
+    $currentDate = date("Y-m-d");
+    $addsalida = $conexion->query("INSERT INTO `salidas`(`total`, `usuario`, `id_area`, `fecha`) VALUES ('$total', '$usuario', $area, '$currentDate')") ? null : null;
+    $lastInsertedId = $conexion->insert_id;
+    $productos = json_decode($_POST['productos'], true);
+    foreach ($productos as $value) {
+        $id = $value['idprd'];
+        $cantidad = $value['cantidad'];
+        $result = $conexion->query("INSERT INTO `output_product`(`id_producto`, `cantidad`, `id_salida`) VALUES ('$id','$cantidad','$lastInsertedId')") ? null : null;
+    }
+   $response = array("status" => "success", "last_inserted_id" => $lastInsertedId);
+}
+catch (Exception $e){
+    $response = array("status" => "error", "message" => $e->getMessage());
+}
+echo json_encode($response);
+}
 function insertar_categoria()
 {
     global $conexion;

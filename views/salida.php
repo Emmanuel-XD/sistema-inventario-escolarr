@@ -87,15 +87,14 @@ include_once "../includes/header.php";
 
 
             <br>
-            <h3>TOTAl : $<span id="granTotal">0</span></h3>
+            <h3>TOTAL : $<span id="granTotal">0</span></h3>
             <br>
             <form action="../includes/guardarSalida.php" method="POST">
 
 
-                <button type="button" class="btn btn-success">
-                    <span class="glyphicon glyphicon-plus"></span> GUARDAR
+                <button type="button"  id="save" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span> GUARDAR SALIDA
                 </button>
-                <a href="#" class="btn btn-danger btn-cancelar">CANCELAR </a>
             </form>
 
         </div>
